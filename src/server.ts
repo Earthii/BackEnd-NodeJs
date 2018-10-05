@@ -8,13 +8,13 @@ import { WelcomeController } from './controllers';
 const app: express.Application = express();
 const port: string | number = process.env.PORT || 3000;
 
-app.use(bodyParser.json()); // parse application/json
-app.use(
-  // parse application/x-www-form-urlencoded
-  bodyParser.urlencoded({
-    extended: true
-  })
-);
+// app.use(bodyParser.json()); // parse application/json
+// app.use(
+//   // parse application/x-www-form-urlencoded
+//   bodyParser.urlencoded({
+//     extended: true
+//   })
+// );
 
 app.use('/welcome', WelcomeController);
 
