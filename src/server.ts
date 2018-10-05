@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import * as bodyParser from 'body-parser';
 
 // Import WelcomeController from controllers entry point
@@ -7,8 +8,9 @@ import { WelcomeController } from './controllers';
 const app: express.Application = express();
 const port: string | number = process.env.PORT || 8080;
 
-app.use(bodyParser.json()); // parse application/json
+app.use(cors()); // Allow Cross-Origin requests
 
+app.use(bodyParser.json()); // parse application/json
 app.use(
   // parse application/x-www-form-urlencoded
   bodyParser.urlencoded({
