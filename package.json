@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "./node_modules/nodemon/bin/nodemon.js",
     "dev-start": "ts-node src/server.ts",
-    "start": "tsc && node ./dist/server.js"
+    "start": "node ./dist/server.js"
   },
   "author": "",
   "license": "ISC",
