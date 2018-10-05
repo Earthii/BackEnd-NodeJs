@@ -4,10 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "tsc": "tsc",
     "dev": "./node_modules/nodemon/bin/nodemon.js",
     "dev-start": "ts-node src/server.ts",
-    "start": "node ./dist/server.js"
+    "start": "tsc && node ./dist/server.js"
   },
   "author": "",
   "license": "ISC",
