@@ -1,21 +1,33 @@
-/* app/server.ts */
-
-// Import everything from express and assign it to the express variable
 import express from 'express';
+import * as bodyParser from 'body-parser';
 
 // Import WelcomeController from controllers entry point
 import { WelcomeController } from './controllers';
 
-// Create a new express application instance
 const app: express.Application = express();
-// The port the express app will listen on
-const port: string | number = process.env.PORT || 3000;
+const port: string | number = process.env.PORT || 8080;
 
-// Mount the WelcomeController at the /welcome route
+app.use(bodyParser.json()); // parse application/json
+app.use(
+  // parse application/x-www-form-urlencoded
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
+
 app.use('/welcome', WelcomeController);
+
+app.route('/api').get((req, res) => {
+  res.send({
+    test: ['hello world']
+  });
+});
+
+app.route('/api').post((req, res) => {
+  res.send(req.body);
+});
 
 // Serve the application at the given port
 app.listen(port, () => {
-  // Success callback
   console.log(`Listening at http://localhost:${port}/`);
 });
