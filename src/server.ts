@@ -10,7 +10,7 @@ const port: string | number = process.env.PORT || 8080;
 
 app.use(bodyParser.json()); // parse application/json
 
-app.use(cors({ origin: 'http://localhost:4200' })); // Allow Cross-Origin requests
+app.use(cors()); // Allow Cross-Origin requests
 
 app.use(
   // parse application/x-www-form-urlencoded
