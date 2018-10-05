@@ -12,9 +12,6 @@
 # limitations under the License.
 #
 # [START runtime]
-runtime: nodejs8
-handlers:
-  - url: *
-    http_headers:
-      Access-Control-Allow-Origin: *
+runtime:
+  nodejs8
   # [END runtime]
