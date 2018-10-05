@@ -6,9 +6,7 @@ import * as bodyParser from 'body-parser';
 import { WelcomeController } from './controllers';
 
 const app: express.Application = express();
-const port: string | number = process.env.PORT || 8080;
-
-app.use(cors()); // Allow Cross-Origin requests
+const port: string | number = process.env.PORT || 3000;
 
 app.use(bodyParser.json()); // parse application/json
 app.use(
