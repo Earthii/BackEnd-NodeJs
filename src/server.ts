@@ -18,15 +18,15 @@ app.use(
 
 app.use('/welcome', WelcomeController);
 
-app.route('/api').get((req, res) => {
-  res.send({
-    test: ['hello world']
-  });
-});
+// app.route('/api').get((req, res) => {
+//   res.send({
+//     test: ['hello world']
+//   });
+// });
 
-app.route('/api').post((req, res) => {
-  res.send(req.body);
-});
+// app.route('/api').post((req, res) => {
+//   res.send(req.body);
+// });
 
 // Serve the application at the given port
 app.listen(port, () => {
