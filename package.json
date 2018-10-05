@@ -7,7 +7,7 @@
     "tsc": "tsc",
     "dev": "./node_modules/nodemon/bin/nodemon.js",
     "dev-start": "ts-node src/server.ts",
-    "start": "npm run tsc && node ./dist/server.js"
+    "start": "node ./dist/server.js"
   },
   "author": "",
   "license": "ISC",
