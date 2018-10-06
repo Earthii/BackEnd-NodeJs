@@ -1,15 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import * as bodyParser from 'body-parser';
-import { initDb } from './database/database';
+import Sequelize from 'sequelize';
+import { sequelize } from './database/database';
 
 // Import WelcomeController from controllers entry point
 import { WelcomeController } from './controllers';
 
 const app: express.Application = express();
 const port: string | number = process.env.PORT || 3000;
-
-initDb();
 
 app.use(cors());
 
@@ -20,6 +19,23 @@ app.use(
     extended: true
   })
 );
+
+const User = sequelize.define('user', {
+  username: Sequelize.STRING,
+  birthday: Sequelize.DATE
+});
+
+// sequelize
+//   .sync()
+//   .then(() =>
+//     User.create({
+//       username: 'eric',
+//       birthday: new Date(1980, 6, 20)
+//     })
+//   )
+//   .then(jane => {
+//     console.log(jane);
+//   });
 
 app.use('/welcome', WelcomeController);
 

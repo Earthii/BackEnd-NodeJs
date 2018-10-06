@@ -13,6 +13,11 @@ Install Dependencies
 ```
 npm install
 ```
+Environment Variables
+```
+export DB_URL=127.0.0.1
+export DB_PORT=3306
+```
 Deploy a [local Mysql database with docker](https://dzone.com/articles/docker-for-mac-mysql-setup) with the following command
 ```
 docker run -p 3306:3306 -d --name mysql -e MYSQL_ROOT_PASSWORD=password mysql/mysql-server
