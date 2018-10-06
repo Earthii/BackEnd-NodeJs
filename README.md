@@ -30,5 +30,5 @@ CREATE USER 'admin'@'%' IDENTIFIED BY 'nimda';
 ```
 GRANT ALL PRIVILEGES ON * . * TO 'admin'@'%';
 ```
->There exists an issue currently where it is required for you to run
+>There exists an [issue](https://stackoverflow.com/questions/50093144/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server) currently where it is required for you to run
 > ``` ALTER USER 'admin' IDENTIFIED WITH mysql_native_password BY 'nimda' ```
