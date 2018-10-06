@@ -1,7 +1,6 @@
 import Sequelize from 'sequelize';
 
 function initDb(){
-    console.log('Connect to database!')
     return new Sequelize('database', 'admin', 'nimda', {
         host: process.env.DB_URL || 'localhost',
         port: Number(process.env.DB_PORT) || 3306,
