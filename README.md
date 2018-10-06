@@ -13,7 +13,7 @@ Install Dependencies
 ```
 npm install
 ```
-Deploy a local Mysql database with docker with the following command
+Deploy a (https://dzone.com/articles/docker-for-mac-mysql-setup)[local Mysql database with docker] with the following command
 ```
 docker run -p 3306:3306 -d --name mysql -e MYSQL_ROOT_PASSWORD=password mysql/mysql-server
 ```
