@@ -1,12 +1,15 @@
 import express from 'express';
 import cors from 'cors';
 import * as bodyParser from 'body-parser';
+import { initDb } from './database/database';
 
 // Import WelcomeController from controllers entry point
 import { WelcomeController } from './controllers';
 
 const app: express.Application = express();
 const port: string | number = process.env.PORT || 3000;
+
+initDb();
 
 app.use(cors());
 
@@ -20,15 +23,16 @@ app.use(
 
 app.use('/welcome', WelcomeController);
 
-app.route('/api').get((req, res) => {
-  res.send({
-    test: ['hello world']
+app
+  .route('/api')
+  .get((req, res) => {
+    res.send({
+      test: ['hello world']
+    });
+  })
+  .post((req, res) => {
+    res.send(req.body);
   });
-});
-
-app.route('/api').post((req, res) => {
-  res.send(req.body);
-});
 
 // Serve the application at the given port
 app.listen(port, () => {
