@@ -1,4 +1,4 @@
-# Memestream
+# BackEnd-NodeJs
 
 Description
 
@@ -18,7 +18,10 @@ Set the Environment Variables in the .env file... Example
 DB_URL=127.0.0.1
 DB_PORT=3306
 DB_NAME=memestream
+DB_USER=admin
+DB_PASS=nimda
 PORT=3000
+
 ```
 Deploy a [local Mysql database with docker](https://dzone.com/articles/docker-for-mac-mysql-setup) with the following command
 ```
