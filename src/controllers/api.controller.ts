@@ -18,7 +18,8 @@ router.post('/message', (req: Request, res: Response) => {
     .then(() => {
       return Message.create({
         message: req.body.message,
-        date: new Date()
+        date: new Date(),
+        author: req.body.author
       });
     })
     .then(message => {

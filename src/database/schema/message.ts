@@ -3,6 +3,8 @@ import { sequelize } from './../../database/database';
 
 export const Message = sequelize.define('message', {
     message: Sequelize.STRING,
-    date: Sequelize.DATE
+    date: Sequelize.DATE,
+    author: Sequelize.STRING
   });
+  Message.sync();
   
