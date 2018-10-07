@@ -3,7 +3,7 @@ import cors from 'cors';
 import * as bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 
-import { ApiController } from './controllers';
+import { ApiController, AuthController } from './controllers';
 import { sequelize } from './database/database';
 
 dotenv.config();
@@ -24,6 +24,7 @@ app.use(
 );
 
 app.use('/api', ApiController);
+app.use('/auth', AuthController);
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/ \n\n`);
