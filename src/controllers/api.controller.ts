@@ -6,8 +6,10 @@ import { Message } from './../database/schema/message';
 
 const router: Router = Router();
 
-router.get('/', (req: Request, res: Response) => {
-  res.send({ test: 'Hello, World!' });
+router.get('/message', (req: Request, res: Response) => {
+  Message.findAll().then(messages => {
+    res.send(messages);
+  })
 });
 
 router.post('/message', (req: Request, res: Response) => {
