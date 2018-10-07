@@ -13,12 +13,12 @@ router.get('/', (req: Request, res: Response) => {
 router.post('/message', (req: Request, res: Response) => {
   sequelize
     .sync()
-    .then(() =>
-      Message.create({
-        message: 'Hey there Eric!',
-        date: new Date(),
-      })
-    )
+    .then(() => {
+      return Message.create({
+        message: req.body.message,
+        date: new Date()
+      });
+    })
     .then(message => {
       res.send(req.body);
     });
