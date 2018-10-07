@@ -19,8 +19,7 @@ router.post('/message', (req: Request, res: Response) => {
         date: new Date(),
       })
     )
-    .then(jane => {
-      console.log(jane);
+    .then(message => {
       res.send(req.body);
     });
 });
