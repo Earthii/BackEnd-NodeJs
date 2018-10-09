@@ -1,4 +1,4 @@
-import Sequelize from 'sequelize';
+import {Sequelize} from 'sequelize-typescript';
 import mysql from 'mysql2';
 import dotenv from 'dotenv';
 
@@ -22,10 +22,17 @@ function initDb() {
     conn.end();
   })
 
-  return new Sequelize(databaseName, db_user, db_pass, {
+  return new Sequelize({
+    database: databaseName,
+    username: db_user,
+    password: db_pass,
     host: process.env.DB_URL || 'localhost',
     port: Number(process.env.DB_PORT) || 3306,
     dialect: 'mysql',
+    modelPaths: [__dirname + '/models/**/*.model.ts'],
+    modelMatch: (filename, member) => {
+      return filename.substring(0, filename.indexOf('.model')) === member.toLowerCase();
+    },
     pool: {
       max: 5,
       min: 0,

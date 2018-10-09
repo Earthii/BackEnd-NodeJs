@@ -1,14 +1,16 @@
-import { User } from './../database/schema/user';
-import { sequelize } from './../database/database';
+import { User } from '../database/models/user.model';
+import { sequelize } from '../database/database';
 import { Router, Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 
 const saltRounds = 10;
 
 export const router: Router = Router();
+
 router.get('/', (req, res)=>{
   res.send({ping:true})
 })
+
 router.post('/register', (req: Request, res: Response) => {
   sequelize
     .sync()

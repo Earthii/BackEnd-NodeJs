@@ -1,2 +1,1 @@
-export * from './api.controller';
-export * from './login.controller';
+export * from './auth.controller';
