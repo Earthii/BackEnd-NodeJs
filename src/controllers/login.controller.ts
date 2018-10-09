@@ -6,7 +6,9 @@ import bcrypt from 'bcrypt';
 const saltRounds = 10;
 
 export const router: Router = Router();
-
+router.get('/', (req, res)=>{
+  res.send({ping:true})
+})
 router.post('/register', (req: Request, res: Response) => {
   sequelize
     .sync()
@@ -23,7 +25,7 @@ router.post('/register', (req: Request, res: Response) => {
       res.status(200).send(user);
     })
     .catch(err => {
-      res.send(err);
+      res.status(403).send("This username already exists");
     });
 });
 
@@ -33,12 +35,19 @@ router.post('/login', (req: Request, res: Response) => {
       return user as { username: string; password: string };
     })
     .then(user => {
+      if(!user){
+        throw new Error("Did not find user");
+      }
       return bcrypt.compare(req.body.password, user.password);
     })
     .then(validPass => {
-        // true - password match
-        // flase - password doesnt match
-      res.send(validPass);
+        if(validPass){
+          res.status(200).send();
+        }else{
+          throw new Error("Password did not match");
+        }
+    }).catch(err =>{
+      res.status(401).send("User does not exist or Password did not match");
     });
 });
 
