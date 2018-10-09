@@ -19,4 +19,12 @@ export class User extends Model<User> {
   
   @DeletedAt
   deletionDate!: Date;
+  
+}
+
+User.prototype.toJSON =  function () {
+  var values = Object.assign({}, this.get());
+
+  delete values.password;
+  return values;
 }
