@@ -1,6 +1,15 @@
-import { Table, Column, Model, CreatedAt, UpdatedAt, DeletedAt, Unique, AllowNull } from 'sequelize-typescript';
+import {
+  Table,
+  Column,
+  Model,
+  CreatedAt,
+  UpdatedAt,
+  DeletedAt,
+  Unique,
+  AllowNull
+} from 'sequelize-typescript';
 
-@Table({timestamps: true})
+@Table({ timestamps: true })
 export class User extends Model<User> {
   @Unique
   @AllowNull(false)
@@ -16,15 +25,14 @@ export class User extends Model<User> {
 
   @UpdatedAt
   updatedOn!: Date;
-  
+
   @DeletedAt
   deletionDate!: Date;
-  
-}
 
-User.prototype.toJSON =  function () {
-  var values = Object.assign({}, this.get());
+  toJSON = () => {
+    var values = Object.assign({}, this.get());
 
-  delete values.password;
-  return values;
+    delete values.password;
+    return values;
+  };
 }
